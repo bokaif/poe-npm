@@ -1,0 +1,30 @@
+{
+  "name": "poe-npm",
+  "version": "1.0.1",
+  "description": "A Node.js package for interacting with the Quora Poe chatbots, including custom chatbots. Please note that this package is not official and has been reverse-engineered. Use it at your own discretion.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bokaif/poe-npm.git"
+  },
+  "keywords": [
+    "poe",
+    "quora",
+    "api",
+    "chatbot",
+    "chatgpt",
+    "claude"
+  ],
+  "author": "bokaif",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bokaif/poe-npm/issues"
+  },
+  "homepage": "https://github.com/bokaif/poe-npm#readme",
+  "dependencies": {
+    "node-fetch": "^3.3.1"
+  }
+}
