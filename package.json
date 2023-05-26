@@ -1,6 +1,6 @@
 {
   "name": "poe-npm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Node.js package for interacting with the Quora Poe chatbots, including custom chatbots. Please note that this package is not official and has been reverse-engineered. Use it at your own discretion.",
   "main": "index.js",
   "scripts": {
