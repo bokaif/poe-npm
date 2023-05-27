@@ -1,5 +1,4 @@
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-const readlineSync = require('readline-sync');
 
 const url = 'https://www.quora.com/poe_api/gql_POST';
 
@@ -47,10 +46,10 @@ async function loadChatId(bot) {
 async function clearContext(chatId) {
   try {
     const data = {
-      "operationName": "AddMessageBreakMutation",
-      "query": "mutation AddMessageBreakMutation($chatId:BigInt!){\n messageBreakCreate(chatId:$chatId){\n __typename\n message{\n __typename\n...MessageFragment\n}\n}\n}\nfragment MessageFragment on Message{\n id\n __typename\n messageId\n text\n linkifiedText\n authorNickname\n state\n vote\n voteReason\n creationTime\n suggestedReplies\n}",
-      "variables": {
-        "chatId": chatId
+      'operationName': 'AddMessageBreakMutation',
+      'query': 'mutation AddMessageBreakMutation($chatId:BigInt!){\n messageBreakCreate(chatId:$chatId){\n __typename\n message{\n __typename\n...MessageFragment\n}\n}\n}\nfragment MessageFragment on Message{\n id\n __typename\n messageId\n text\n linkifiedText\n authorNickname\n state\n vote\n voteReason\n creationTime\n suggestedReplies\n}',
+      'variables': {
+        'chatId': chatId
       }
     };
 
@@ -71,14 +70,14 @@ function sleep(ms) {
 async function sendMessage(bot, chatId, message) {
   try {
     const data = {
-      "operationName": "AddHumanMessageMutation",
-      "query": "mutation AddHumanMessageMutation($chatId:BigInt!,$bot:String!,$query:String!,$source:MessageSource,$withChatBreak:Boolean!=false){\n messageCreate(\n chatId:$chatId\nbot:$bot\nquery:$query\nsource:$source\nwithChatBreak:$withChatBreak\n){\n __typename\n message{\n __typename\n...MessageFragment\n chat{\n __typename\n id\n shouldShowDisclaimer\n}\n}\n chatBreak{\n __typename\n...MessageFragment\n}\n}\n}\nfragment MessageFragment on Message{\n id\n __typename\n messageId\n text\n linkifiedText\n authorNickname\n state\n vote\n voteReason\n creationTime\n suggestedReplies\n}",
-      "variables": {
-        "bot": bot,
-        "chatId": chatId,
-        "query": message,
-        "source": null,
-        "withChatBreak": false
+      'operationName': 'AddHumanMessageMutation',
+      'query': 'mutation AddHumanMessageMutation($chatId:BigInt!,$bot:String!,$query:String!,$source:MessageSource,$withChatBreak:Boolean!=false){\n messageCreate(\n chatId:$chatId\nbot:$bot\nquery:$query\nsource:$source\nwithChatBreak:$withChatBreak\n){\n __typename\n message{\n __typename\n...MessageFragment\n chat{\n __typename\n id\n shouldShowDisclaimer\n}\n}\n chatBreak{\n __typename\n...MessageFragment\n}\n}\n}\nfragment MessageFragment on Message{\n id\n __typename\n messageId\n text\n linkifiedText\n authorNickname\n state\n vote\n voteReason\n creationTime\n suggestedReplies\n}',
+      'variables': {
+        'bot': bot,
+        'chatId': chatId,
+        'query': message,
+        'source': null,
+        'withChatBreak': false
       }
     };
 
@@ -101,13 +100,13 @@ async function sendMessage(bot, chatId, message) {
 async function getMessage(bot, chatId) {
   try {
     const data = {
-      "operationName": "ChatPaginationQuery",
-      "query": "query ChatPaginationQuery($bot:String!,$before:String,$last:Int!=10){\n chatOfBot(bot:$bot){\n id\n __typename\n messagesConnection(before:$before,last:$last){\n __typename\n pageInfo{\n __typename\n hasPreviousPage\n}\n edges{\n __typename\n node{\n __typename\n...MessageFragment\n}\n}\n}\n}\n}\nfragment MessageFragment on Message{\n id\n __typename\n messageId\n text\n linkifiedText\n authorNickname\n state\n vote\n voteReason\n creationTime\n}",
-      "variables": {
-        "before": null,
-        "chatId": chatId,
-        "bot": bot,
-        "last": 1
+      'operationName': 'ChatPaginationQuery',
+      'query': 'query ChatPaginationQuery($bot:String!,$before:String,$last:Int!=10){\n chatOfBot(bot:$bot){\n id\n __typename\n messagesConnection(before:$before,last:$last){\n __typename\n pageInfo{\n __typename\n hasPreviousPage\n}\n edges{\n __typename\n node{\n __typename\n...MessageFragment\n}\n}\n}\n}\n}\nfragment MessageFragment on Message{\n id\n __typename\n messageId\n text\n linkifiedText\n authorNickname\n state\n vote\n voteReason\n creationTime\n}',
+      'variables': {
+        'before': null,
+        'chatId': chatId,
+        'bot': bot,
+        'last': 1
       }
     };
 
@@ -145,16 +144,10 @@ async function getMessage(bot, chatId) {
   }
 }
 
-function userQuestion(who = 'You') {
-  return readlineSync.question(who + ': ');
-}
-
-
 module.exports = {
   setAuth,
   loadChatId,
   clearContext,
   sendMessage,
-  getMessage,
-  userQuestion
+  getMessage
 };
