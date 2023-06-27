@@ -1,7 +1,10 @@
 # **Poe-NPM**
 
-[![npm version](https://badge.fury.io/js/poe-npm.svg)](https://badge.fury.io/js/poe-npm)
+[![npm version](https://img.shields.io/npm/v/poe-npm?label=version)](https://www.npmjs.com/package/poe-npm)
+[![downloads](https://img.shields.io/npm/dt/poe-npm)](https://www.npmjs.com/package/poe-npm)
+[![stars](https://img.shields.io/github/stars/bokaif/poe-npm?style=social)](https://github.com/bokaif/poe-npm)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 A Node.js package for Interacting with Poe Chatbots using Reverse Engineering
 
